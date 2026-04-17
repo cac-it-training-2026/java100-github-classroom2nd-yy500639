@@ -9,11 +9,19 @@
  * たいへんお待たせしました。
  *【ポエール・ネルメ】
  * ただいまより開店です！！
- *test
+ *
  */
 
 package lesson01.challenge01;
 
 public class Patisserie {
+	public static void main(String[] args) {
+		// たいへんお待たせしましたを出力
+		System.out.println("たいへんお待たせしました。");
+		// 【ポエール・ネルメ】を出力
+		System.out.println("【ポエール・ネルメ】");
+		// ただいまより開店です！！を出力
+		System.out.println("ただいまより開店です！！");
+	}
 
 }
