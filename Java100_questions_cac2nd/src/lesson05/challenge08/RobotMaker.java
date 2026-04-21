@@ -87,7 +87,7 @@ class Robot {
 			butterNum = butterNum - 5;
 			omeletNum++;
 		}
-		System.out.println("\n完成したオムレツは" + omeletNum + "つです。\n");
+		System.out.println("\n" + omeletNum + "人分のオムレツを作成しました。\n");
 	}
 
 	int getWater() {
@@ -155,7 +155,13 @@ public class RobotMaker {
 		//標準出力でメニューを表示する。
 		Robot robot = new Robot();
 		String menu = robot.makeEggDishes(flourNum, sugarNum, eggNum, butterNum);
-		System.out.println("\n" + menu);
+
+		if (menu != null) {
+			System.out.println("\n" + menu + "が出来ました。");
+		} else {
+			System.out.println("\n何も作れません。");
+		}
+
 	}
 
 }

@@ -56,7 +56,7 @@ class Robot {
 			butterNum = butterNum - 5;
 			omeletNum++;
 		}
-		System.out.println("\n完成したオムレツは" + omeletNum + "つです。\n");
+		System.out.println("\n" + omeletNum + "人分のオムレツを作成しました。\n");
 	}
 
 	int getWater() {
