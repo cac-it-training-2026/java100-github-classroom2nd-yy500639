@@ -10,7 +10,10 @@
  *
  */
 
-package lesson08.challenge01;
+package lesson08.challenge03.Nuserry.main;
+
+import lesson08.challenge03.Nuserry.logic.Nurse;
+import lesson08.challenge03.Nuserry.logic.NurserySchoolChild;
 
 public class NurserySchool {
 
