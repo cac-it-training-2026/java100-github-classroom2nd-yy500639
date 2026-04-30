@@ -54,23 +54,53 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 //ここにAlphalianクラスを記述する
+class Alphalian {
+	private String[] nameArray = { "A", "B", "C", "D", "E" };
+	public static int count = 0;
+
+	public String alphalianName() {
+		count++;
+		int randomNum = (int) (Math.random() * 5);
+		String alphalianName = nameArray[randomNum];
+
+		return alphalianName;
+	}
+
+}
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        boolean hitFlag = false;
+		boolean hitFlag = false;
 
+		//ここに適切な処理を記述する。
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String inputName;
+		String alphalianName;
 
-        //ここに適切な処理を記述する。
+		Alphalian alphalian = new Alphalian();
+		do {
+			System.out.print("名前を入れてください（A～E）＞");
+			inputName = br.readLine();
+			alphalianName = alphalian.alphalianName();
 
+			hitFlag = alphalianName.equals(inputName);
 
-        if (hitFlag) {
-            System.out.println("当たったアルファ。α星にようこそアルファ。");
-        } else {
-            System.out.println("って言うか、お前やる気ないアルファ！");
-            System.out.println("とっとと出て行けアルファ！");
-        }
-    }
+			System.out.println("α星人：" + Alphalian.count + "人目");
+
+			if (hitFlag == false) {
+				System.out.println("おら、そんな名前じゃないアルファ！");
+				System.out.println(alphalianName + "が正解だアルファ！");
+			}
+		} while (hitFlag == false);
+
+		if (hitFlag) {
+			System.out.println("当たったアルファ。α星にようこそアルファ。");
+		} else {
+			System.out.println("って言うか、お前やる気ないアルファ！");
+			System.out.println("とっとと出て行けアルファ！");
+		}
+	}
 
 }

@@ -99,9 +99,37 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		// changeElementNumに0が格納されている要素番号を保管する
+		int changeElementNum = 0;
 
+		// 変更が完了したかどうかをbreakCheckにて判断する
+		boolean breakCheck = false;
+
+		// 0が格納されている要素番号を探す
+		for (int i = 0; i < 5; i++) {
+			if (wonderfulArray[i] == 0) {
+				changeElementNum = i;
+				break;
+			}
+		}
+
+		// 1から順番にcheckNumに代入し、代入した数字が配列に格納されているかを判断する
+		// 格納されていなかった場合、0が格納されている要素に代入を行い、繰り返しを終了する
+		for (int checkNum = 1; checkNum <= 5; checkNum++) {
+			for (int i = 0; i < 5; i++) {
+				if (wonderfulArray[i] == checkNum) {
+					break;
+				}
+				if (i == 4) {
+					wonderfulArray[changeElementNum] = checkNum;
+					breakCheck = true;
+				}
+			}
+			if (breakCheck == true) {
+				break;
+			}
+		}
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");

@@ -83,10 +83,47 @@ public class Explorer {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
 		//ここにwhile文、if文を利用した処理を記述
 
+		while (i < 3) {
+			// alligatorはワニの種類を表し、パーワニは1、グーワニは2、チョキワニは3とする
+			alligator = (int) (Math.random() * 10 % 3) + 1;
+			String alligatorName;
 
+			if (alligator == 1) {
+				alligatorName = "パーワニ";
+			} else if (alligator == 2) {
+				alligatorName = "グーワニ";
+			} else {
+				alligatorName = "チョキワニ";
+			}
+
+			System.out.println("隊長：");
+			System.out.println("どの手を出して通り抜けますか");
+			System.out.print("（グー… 1 : チョキ… 2 : パー… 3）＞");
+
+			String str = br.readLine();
+			hand = Integer.parseInt(str);
+
+			// 1～3以外の出を出した場合はもう一度やり直す
+			// alligatorと同じ番号を入力した場合負け扱い
+			if (hand < 1 || hand > 3) {
+				System.out.println("\n隊長：");
+				System.out.println("そんな手はありませんよ。もう一度入れてください。");
+			} else if (hand == alligator) {
+				System.out.println("\n隊長：");
+				System.out.println("相手は" + alligatorName + "でした。");
+				break;
+			} else {
+				i++;
+				System.out.println("\n隊長：");
+				System.out.println("相手は" + alligatorName + "でした。");
+				System.out.println(i + "匹目通り抜け成功！\n");
+			}
+
+		}
+
+		// 3回通り抜けられた場合に川を渡り切りました。と表示
 		if (i == 3) {
 			System.out.println("隊長：");
 			System.out.println("川を渡り切りました。");
