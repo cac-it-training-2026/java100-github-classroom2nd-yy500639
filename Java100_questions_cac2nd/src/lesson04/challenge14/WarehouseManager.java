@@ -135,13 +135,25 @@ public class WarehouseManager {
 	public static void main(String[] args) throws IOException {
 
 		String[] handArray = { "グー", "チョキ", "パー" };
+
+		// プレイヤーが勝利した数を数える
 		int winPoint = 0;
+
+		// プレイヤーが敗北した数を数える
 		int losePoint = 0;
+
+		// 引き分けた数を数える
 		int drawPoint = 0;
+
+		// stoneCount1にてプレイヤー、stoneCount2にてCPUがグーを箱の中に入れた数を数える
 		int stoneCount1 = 0;
 		int stoneCount2 = 0;
+
+		// stoneCount1にてプレイヤー、stoneCount2にてCPUがチョキを箱の中に入れた数を数える
 		int scissorsCount1 = 0;
 		int scissorsCount2 = 0;
+
+		// stoneCount1にてプレイヤー、stoneCount2にてCPUがパーを箱の中に入れた数を数える
 		int paperCount1 = 0;
 		int paperCount2 = 0;
 
@@ -161,6 +173,7 @@ public class WarehouseManager {
 			str = br.readLine();
 			handCheck = Integer.parseInt(str);
 
+			// すでに2回同じ手を選んでいた場合は入力をやり直す
 			if ((handCheck == 1 && stoneCount1 > 1) || (handCheck == 2 && scissorsCount1 > 1)
 					|| (handCheck == 3 && paperCount1 > 1)) {
 				System.out.println("\nYさん：");

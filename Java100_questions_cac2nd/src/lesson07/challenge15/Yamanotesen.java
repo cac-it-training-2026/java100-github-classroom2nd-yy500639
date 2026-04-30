@@ -17,7 +17,10 @@ public class Yamanotesen {
 				"浜松町", "田町", "高輪ゲートウェイ" };
 
 		boolean[] overlapCheck = new boolean[stations.length];
+
+		// count：回答した駅名の数（CPU含む）を数える
 		int count = 0;
+
 		boolean loopFlag = true;
 		boolean enemyLoopFlag = true;
 
@@ -29,9 +32,16 @@ public class Yamanotesen {
 		System.out.println("      ゲームスタート！\n");
 
 		do {
+			// loopFlag：trueの間繰り返し 回答が誤っていた場合とすでに回答済みの回答をした場合にfalseになる
+			// enemyLoopFlag：trueの間繰り返し CPUが回答済みの回答をした場合に再度回答するために用いる
 			loopFlag = true;
 			enemyLoopFlag = true;
+
+			// 回答を入力
 			String str = br.readLine();
+
+			// 回答済みの駅名はoverlapCheck[]にて管理
+			// 正解の場合はoverlapCheck[回答した駅名の配列番号]をfalseにする
 			for (int i = 0; i < stations.length; i++) {
 				if (str.equals(stations[i]) && overlapCheck[i] == true) {
 					overlapCheck[i] = false;
@@ -61,6 +71,7 @@ public class Yamanotesen {
 
 		} while (loopFlag == true);
 
+		// 30駅回答出来ていれば"あなたの勝ちです！"を出力
 		if (count == 30) {
 			System.out.println("あなたの勝ちです！");
 		} else {
